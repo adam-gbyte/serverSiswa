@@ -16,8 +16,14 @@ const addStudent = async (student) => {
     return result.insertId;
 }
 
+const deleteStudentById = async (id) => {
+    const [result] = await db.query("DELETE FROM siswa WHERE id = ?", [id]);
+    return result.affectedRows;
+}
+
 module.exports = {
     getAllStudent,
     getStudentById,
-    addStudent
+    addStudent,
+    deleteStudentById
 }
