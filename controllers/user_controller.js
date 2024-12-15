@@ -11,8 +11,8 @@ const getAllStudent = async (req, res) => {
         console.log(error);
         req.json({ message: 'Error Get All Student' })
     }
-
 }
+
 const getStudentById = async (req, res) => {
     try {
         const student =
@@ -29,6 +29,7 @@ const getStudentById = async (req, res) => {
         res.status(500).json({ message: 'Error Get Student' })
     }
 }
+
 const addStudent = async (req, res) => {
     try {
         const newStudent = await userModel.addStudent(req.body)
