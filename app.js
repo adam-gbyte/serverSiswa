@@ -1,13 +1,15 @@
 const userRouter = require('./routes/user_routes')
 require('dotenv').config()
 const bodyParser = require('body-parser')
-const user = require('cors')
 const express = require('express')
-
 const app = express()
-//app.use(cors)
+
+const userLogger = require('./middlewares/logger')
+
 app.use(bodyParser.json())
-//app.use(bodyParser.urlencoded)()
+
+app.use(userLogger)
+
 app.use('/api/student', userRouter)
 
 const port = process.env.PORT
